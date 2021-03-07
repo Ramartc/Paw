@@ -30,10 +30,9 @@ public class GestorBD {
     List<String> articulo = new ArrayList();
     Connection con = null;
     try {
-      con = DriverManager.getConnection("jdbc:mysql://localhost:3306/electrosa?serverTimezone=UTC", 
-                                        "root", "root");
+      con = DriverManager.getConnection("jdbc:mysql://localhost:3306/electrosa?serverTimezone=UTC", "root", "root");
       Statement stm = con.createStatement();
-      String sql = "SELECT * FROM articulo WHERE nombre like '%" + nombre + "%'";
+      String sql = "SELECT nombre FROM articulo WHERE nombre like '%" + nombre + "%'";
 
       ResultSet res = stm.executeQuery(sql);
       while (res.next()) {
